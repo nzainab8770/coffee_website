@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Daily Brew | Fresh Coffee. Good Moments.</title>
+  <meta name="description" content="The Daily Brew is a cozy neighbourhood coffee shop serving freshly brewed coffee, tea, pastries and snacks.">
+
+  <!-- Google Fonts: a serif for headings and a clean sans-serif for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <!-- Main website styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Styles for the cart + checkout -->
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION BAR
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="container nav-inner">
+      <a href="#home" class="logo">The Daily <span>Brew</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#order-start" class="nav-cta" id="nav-order-now">Order Now</a></li>
+      </ul>
+
+      <!-- Right side: cart button + hamburger -->
+      <div class="nav-actions">
+        <!-- Cart button: opens the cart drawer (see cart.js) -->
+        <button class="cart-btn" id="open-cart" type="button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+
+        <!-- Hamburger button (only visible on mobile) -->
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         1. HOME / HERO
+         ===================================================== -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-label">Neighbourhood Coffee Shop</span>
+          <h1>Fresh Coffee.<br>Good Moments.</h1>
+          <p>
+            Every cup at The Daily Brew is made to order from beans roasted in small
+            batches — so your coffee is always fresh, warm and full of flavour.
+          </p>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">View Menu</a>
+            <a href="#order-start" class="btn btn-outline" id="hero-order-now">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         2. ABOUT US
+         ===================================================== -->
+    <section id="about" class="section section-white">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="images/about.jpg" alt="Cozy interior of The Daily Brew with warm lamps and plants">
+        </div>
+
+        <div class="about-text">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">A little corner for your daily cup</h2>
+          <p>
+            The Daily Brew started with a simple idea: everyone deserves a great cup of
+            coffee and a friendly place to enjoy it. We're a small, local café where
+            regulars are greeted by name and new faces feel right at home.
+          </p>
+          <p>
+            We serve freshly brewed coffee, hand-picked teas, pastries baked every
+            morning and simple, tasty snacks — perfect for a quick stop or a long,
+            slow afternoon.
+          </p>
+          <ul class="about-list">
+            <li>Fresh Coffee</li>
+            <li>Tea</li>
+            <li>Pastries</li>
+            <li>Snacks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         3. OUR MENU
+         Each card stores its id, name and price in data-* attributes.
+         cart.js reads these when "Add to Cart" is clicked.
+         To add a new item: copy one <article>, change the data-* values,
+         image, name, price and description.
+         ===================================================== -->
+    <section id="menu" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Menu</span>
+          <h2 class="section-title">Something for every mood</h2>
+          <p class="section-text">Classic coffee drinks and fresh bakes, made the way you like them.</p>
+        </div>
+
+        <div class="menu-grid">
+
+          <article class="menu-card" data-id="cappuccino" data-name="Cappuccino" data-price="4.50">
+            <img src="images/cappuccino.jpg" alt="Cappuccino with latte art">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Cappuccino</h3>
+                <span class="price">$4.50</span>
+              </div>
+              <p>Rich espresso topped with steamed milk and a thick layer of foam.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="latte" data-name="Latte" data-price="4.75">
+            <img src="images/latte.jpg" alt="Latte with heart latte art">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Latte</h3>
+                <span class="price">$4.75</span>
+              </div>
+              <p>Smooth espresso with lots of creamy steamed milk. Mild and comforting.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="espresso" data-name="Espresso" data-price="3.00">
+            <img src="images/espresso.jpg" alt="A small cup of espresso">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Espresso</h3>
+                <span class="price">$3.00</span>
+              </div>
+              <p>A short, bold shot pulled from our house-roasted beans.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="americano" data-name="Americano" data-price="3.50">
+            <img src="images/americano.jpg" alt="Black americano coffee">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Americano</h3>
+                <span class="price">$3.50</span>
+              </div>
+              <p>Espresso with hot water for a clean, full-bodied black coffee.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="mocha" data-name="Mocha" data-price="5.00">
+            <img src="images/mocha.jpg" alt="Mocha coffee in a cup">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Mocha</h3>
+                <span class="price">$5.00</span>
+              </div>
+              <p>Espresso, rich chocolate and steamed milk — a sweet little treat.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="chocolate-cake" data-name="Chocolate Cake" data-price="5.50">
+            <img src="images/chocolate-cake.jpg" alt="Slice of chocolate cake">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Chocolate Cake</h3>
+                <span class="price">$5.50</span>
+              </div>
+              <p>Moist, layered chocolate cake with a silky chocolate frosting.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="croissant" data-name="Croissant" data-price="3.25">
+            <img src="images/croissant.jpg" alt="Golden butter croissant">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Croissant</h3>
+                <span class="price">$3.25</span>
+              </div>
+              <p>Flaky, buttery and baked fresh every morning.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="menu-card" data-id="sandwich" data-name="Sandwich" data-price="7.50">
+            <img src="images/sandwich.jpg" alt="Fresh café sandwich on a plate">
+            <div class="menu-card-body">
+              <div class="menu-card-top">
+                <h3>Sandwich</h3>
+                <span class="price">$7.50</span>
+              </div>
+              <p>Toasted bread with fresh fillings — ask about today's special.</p>
+              <button class="btn btn-primary btn-small add-to-cart" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         4. WHY CHOOSE US
+         ===================================================== -->
+    <section id="why-us" class="section section-white">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Why people love The Daily Brew</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">01</div>
+            <h3>Freshly Brewed</h3>
+            <p>Every drink is made to order, never left sitting in a pot.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">02</div>
+            <h3>Quality Ingredients</h3>
+            <p>Small-batch beans, fresh milk and pastries baked daily.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">03</div>
+            <h3>Friendly Service</h3>
+            <p>Our baristas know their regulars — and love meeting new ones.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">04</div>
+            <h3>Cozy Environment</h3>
+            <p>Soft lighting, comfy seats and free Wi-Fi. Stay as long as you like.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         5. GALLERY
+         All images are the same size so every row fills evenly.
+         ===================================================== -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title">A peek inside</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="images/gallery-interior2.jpg" alt="Café interior with pendant lights and menu board">
+            <figcaption>Café Interior</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gallery-coffee.jpg" alt="Cup of coffee with latte art">
+            <figcaption>Coffee</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gallery-pastries.jpg" alt="Freshly baked croissants">
+            <figcaption>Pastries</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gallery-barista.jpg" alt="Barista working at the espresso machine">
+            <figcaption>Barista</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gallery-customers.jpg" alt="Friends enjoying coffee together">
+            <figcaption>Customers</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gallery-beans.jpg" alt="Roasted coffee beans">
+            <figcaption>Coffee Beans</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         6. CONTACT US
+         ===================================================== -->
+    <section id="contact" class="section section-white">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Contact Us</span>
+          <h2 class="section-title">Come say hello</h2>
+          <p class="section-text">Questions, catering or large orders? Drop by or send us a message.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Left side: contact details -->
+          <div class="contact-info">
+            <div class="info-card">
+              <h3>Address</h3>
+              <p>24 Maple Street, Riverside, CA 90210</p>
+            </div>
+
+            <div class="info-card">
+              <h3>Phone</h3>
+              <a href="tel:+15551234567">(555) 123-4567</a>
+            </div>
+
+            <div class="info-card">
+              <h3>Email</h3>
+              <a href="mailto:hello@thedailybrew.com">hello@thedailybrew.com</a>
+            </div>
+
+            <div class="info-card">
+              <h3>Opening Hours</h3>
+              <p class="hours-row"><span>Mon – Fri</span><span>7:00 am – 7:00 pm</span></p>
+              <p class="hours-row"><span>Sat – Sun</span><span>8:00 am – 6:00 pm</span></p>
+            </div>
+          </div>
+
+          <!-- Right side: contact form (handled in script.js) -->
+          <form id="contact-form" class="contact-form">
+            <h3>Send us a message</h3>
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p class="form-success" role="status"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#home" class="logo">The Daily <span>Brew</span></a>
+          <p class="footer-tagline">Fresh coffee and good moments, every single day.</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Social icons (simple inline SVGs, no library needed) -->
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <p class="footer-bottom">
+        &copy; <span id="year">2026</span> The Daily Brew. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       ORDER NOW START SCREEN
+       Shown when the customer clicks Order Now before adding items.
+       ===================================================== -->
+  <div class="order-start" id="order-start" aria-hidden="true">
+    <div class="order-start-box" role="dialog" aria-label="Start your order">
+      <button class="icon-btn order-start-close" id="close-order-start" type="button" aria-label="Close">&times;</button>
+      <div class="order-start-icon">☕</div>
+      <span class="section-label">The Daily Brew</span>
+      <h2>Ready to Order?</h2>
+      <p>Choose your favourite coffee, add it to your cart, and complete your order in just a few steps.</p>
+      <div class="order-start-actions">
+        <a href="#menu" class="btn btn-primary" id="start-browse-menu">Browse Menu</a>
+        <button class="btn btn-light" id="start-view-cart" type="button">View Cart</button>
+      </div>
+      <div class="order-flow-preview">
+        <span>1. Choose Items</span>
+        <span>→</span>
+        <span>2. Checkout</span>
+        <span>→</span>
+        <span>3. Confirm Order</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       CART DRAWER (slides in from the right)
+       The item list is built by cart.js
+       ===================================================== -->
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="drawer-header">
+      <h2>Your Cart</h2>
+      <button class="icon-btn" id="close-cart" type="button" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Shown only when the cart is empty -->
+    <div class="cart-empty" id="cart-empty">
+      <p>Your cart is empty.</p>
+      <a href="#menu" class="btn btn-primary" id="browse-menu">Browse Menu</a>
+    </div>
+
+    <!-- List of cart items (built by JavaScript) -->
+    <ul class="cart-items" id="cart-items"></ul>
+
+    <!-- Cart total + checkout button -->
+    <div class="cart-footer" id="cart-footer">
+      <div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+      <p class="cart-note">Delivery fee and tax are added at checkout.</p>
+      <button class="btn btn-primary btn-block" id="go-checkout" type="button">Checkout</button>
+    </div>
+  </aside>
+
+
+  <!-- =====================================================
+       CHECKOUT (pop-up window with 3 steps)
+       Step 1: Customer details + Delivery / Pickup
+       Step 2: Payment method + Place Order
+       Step 3: Order confirmation
+       ===================================================== -->
+  <div class="checkout" id="checkout" aria-hidden="true">
+    <div class="checkout-box" role="dialog" aria-label="Checkout">
+
+      <div class="checkout-header">
+        <!-- Step indicator at the top -->
+        <ol class="steps" id="steps">
+          <li class="active"><span>1</span> Details</li>
+          <li><span>2</span> Payment</li>
+          <li><span>3</span> Confirmed</li>
+        </ol>
+        <button class="icon-btn" id="close-checkout" type="button" aria-label="Close checkout">&times;</button>
+      </div>
+
+      <div class="checkout-body">
+
+        <!-- LEFT: the current step -->
+        <div class="checkout-main">
+
+          <!-- ---------- STEP 1: CUSTOMER DETAILS + DELIVERY / PICKUP ---------- -->
+          <form class="step-panel active" id="step-details" novalidate>
+            <h3>Customer Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Full Name</label>
+                <input type="text" id="c-name" placeholder="Jane Doe">
+              </div>
+              <div class="form-group">
+                <label for="c-phone">Phone</label>
+                <input type="tel" id="c-phone" placeholder="(555) 123-4567">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" placeholder="you@example.com">
+            </div>
+
+            <h3>Delivery or Pickup?</h3>
+            <div class="choice-group">
+              <label class="choice">
+                <input type="radio" name="method" value="delivery" checked>
+                <span class="choice-box">
+                  <strong>Delivery</strong>
+                  <small>30–45 min · $2.99 fee</small>
+                </span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="method" value="pickup">
+                <span class="choice-box">
+                  <strong>Pickup</strong>
+                  <small>Ready in 15 min · Free</small>
+                </span>
+              </label>
+            </div>
+
+            <!-- Only shown when "Delivery" is selected -->
+            <div class="form-group" id="address-group">
+              <label for="c-address">Delivery Address</label>
+              <input type="text" id="c-address" placeholder="Street, city, ZIP">
+            </div>
+
+            <!-- Only shown when "Pickup" is selected -->
+            <div class="pickup-info" id="pickup-info">
+              Pick up at <strong>24 Maple Street, Riverside</strong>
+            </div>
+
+            <div class="form-group">
+              <label for="c-notes">Order Notes (optional)</label>
+              <input type="text" id="c-notes" placeholder="e.g. oat milk, extra hot">
+            </div>
+
+            <p class="form-error" id="details-error"></p>
+            <button class="btn btn-primary btn-block" type="submit">Continue to Payment</button>
+          </form>
+
+          <!-- ---------- STEP 2: PAYMENT METHOD ---------- -->
+          <form class="step-panel" id="step-payment" novalidate>
+            <h3>Payment Method</h3>
+
+            <div class="choice-group choice-group-3">
+              <label class="choice">
+                <input type="radio" name="payment" value="card" checked>
+                <span class="choice-box"><strong>Card</strong><small>Visa, Mastercard</small></span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="payment" value="cash">
+                <span class="choice-box"><strong id="cash-label">Cash on Delivery</strong><small>Pay when you get it</small></span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="payment" value="wallet">
+                <span class="choice-box"><strong>Mobile Wallet</strong><small>Apple / Google Pay</small></span>
+              </label>
+            </div>
+
+            <!-- Only shown when "Card" is selected (demo only, no real payment) -->
+            <div id="card-fields">
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-expiry">Expiry</label>
+                  <input type="text" id="card-expiry" inputmode="numeric" maxlength="5" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                  <label for="card-cvc">CVC</label>
+                  <input type="text" id="card-cvc" inputmode="numeric" maxlength="4" placeholder="123">
+                </div>
+              </div>
+            </div>
+
+            <p class="form-error" id="payment-error"></p>
+            <div class="step-buttons">
+              <button class="btn btn-light" id="back-to-details" type="button">Back</button>
+              <button class="btn btn-primary" type="submit">Place Order</button>
+            </div>
+          </form>
+
+          <!-- ---------- STEP 3: ORDER CONFIRMATION ---------- -->
+          <div class="step-panel" id="step-confirm">
+            <div class="confirm-icon">&#10003;</div>
+            <h3 class="confirm-title">Thank you, <span id="confirm-name"></span>!</h3>
+            <p class="confirm-text">Your order has been placed. A confirmation was sent to <span id="confirm-email"></span>.</p>
+
+            <div class="confirm-details">
+              <div class="summary-row"><span>Order number</span><strong id="confirm-number"></strong></div>
+              <div class="summary-row"><span>Method</span><strong id="confirm-method"></strong></div>
+              <div class="summary-row"><span>Payment</span><strong id="confirm-payment"></strong></div>
+              <div class="summary-row"><span>Estimated time</span><strong id="confirm-time"></strong></div>
+              <div class="summary-row" id="confirm-address-row"><span>Address</span><strong id="confirm-address"></strong></div>
+              <div class="summary-row summary-total"><span>Total paid</span><strong id="confirm-total"></strong></div>
+            </div>
+
+            <button class="btn btn-primary btn-block" id="finish-order" type="button">Back to Home</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: order summary (visible during all steps) -->
+        <aside class="order-summary">
+          <h3>Order Summary</h3>
+          <ul class="summary-items" id="summary-items"></ul>
+          <div class="summary-row"><span>Subtotal</span><span id="sum-subtotal">$0.00</span></div>
+          <div class="summary-row"><span>Delivery fee</span><span id="sum-delivery">$0.00</span></div>
+          <div class="summary-row"><span>Tax (8%)</span><span id="sum-tax">$0.00</span></div>
+          <div class="summary-row summary-total"><span>Total</span><span id="sum-total">$0.00</span></div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Small pop-up message, e.g. "Latte added to cart" -->
+  <div class="toast" id="toast" role="status"></div>
+
+
+  <!-- Our JavaScript (loaded last so the page elements exist) -->
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>
